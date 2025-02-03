@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../images/default.jpg" type="image/icon type">
+    <title>BASE APP Backend</title>
+</head>
+
+<body>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #d5dad4;
+        }
+
+        .loader {
+            color: #ff4908;
+            font-family: Consolas, Menlo, Monaco, monospace;
+            font-weight: bolder;
+            font-size: 8vh;
+            opacity: 0.8;
+        }
+
+        .loader span {
+            display: inline-block;
+            -webkit-animation: pulse 0.3s alternate infinite ease-in;
+            animation: pulse 0.3s alternate infinite ease-in;
+        }
+
+        .loader span:nth-child(odd) {
+            -webkit-animation-delay: 0.7s;
+            animation-delay: 0.7s;
+        }
+
+        @-webkit-keyframes pulse {
+            to {
+                transform: scale(0.7);
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes pulse {
+            to {
+                transform: scale(0.7);
+                opacity: 0.5;
+            }
+        }
+    </style>
+    <div class="loader">
+        <span>{</span>Welcome to BASE APP API<span>}</span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+To create .env files for different environments= you can follow these rules:
+1. Determine the different environments you want to work. 
+2. Common environments include production= staging= and development.
+3. Create a separate .env file for each environment with specific name
+4. The naming convention for the files typically includes the environment name as a suffix.
+    - Default: .env
+    - Production: .env.production
+    - Staging: .env.staging
+    - Development: .env.development
+    - Testing: .env.texting
+
+5. Define environment variables in each .env file specific to that environment. 
+6. Each variable should be defined on a new line in the format KEY=VALUE.
+
+Use below environment variables for this project.
+
+// Core environments
+APP_NAME=
+
+// Server environments
+DOTENV_STATE=
+SERVER_NODE_ENV=
+SERVER_API_LOG_STATUS=
+SERVER_DEBUG_LOG_STATUS=
+SERVER_ERROR_LOG_STATUS=
+SERVER_HOST=
+SERVER_DOMAIN=
+SERVER_PORT=
+SERVER_ACCESS_TOKEN_KEY=
+SERVER_ACCESS_SESSION_KEY=
+SERVER_ACCESS_TOKEN_EXPIRE=
+SERVER_REFRESH_TOKEN_KEY=
+SERVER_REFRESH_SESSION_KEY=
+SERVER_REFRESH_TOKEN_EXPIRE=
+SERVER_ROOT_PATH=
+SERVER_UPLOADS_PATH=
+SERVER_VIEWS_PATH=
+SERVER_IMAGES_PATH=
+DOCUMENTATION_URL=
+DOCUMENTATION_REDIRECTION=
+
+// Client environments
+CLIENT_REDIRECTION=
+CLIENT_HOST=
+CLIENT_DOMAIN=
+CLIENT_PORT=
+CLIENT_ADMIN_HOST=
+CLIENT_ADMIN_DOMAIN=
+CLIENT_ADMIN_PORT=
+
+// Mongo environments
+MONGO_USER=
+MONGO_HOST=
+MONGO_PASSWORD=
+MONGO_DATABASE=
+MONGO_PORT=
+MONGO_SRV=
+
+// JWT environments
+JWT_ACCESS_TOKEN_SECRET=
+JWT_ACCESS_TOKEN__SECRET=
+JWT_ACCESS_TOKEN_EXPIRE=
+JWT_REFRESH_TOKEN_SECRET=
+JWT_REFRESH_TOKEN_EXPIRE=
+JWT_ACTIVATION_TOKEN_SECRET=
+JWT_ACTIVATION_TOKEN_EXPIRE=
+JWT_RESET_TOKEN_SECRET=
+JWT_RESET_TOKEN_EXPIRE=
+JWT_TOKEN_ISSUER=
+
+// Settings
+OTP_EXPIRE_TIME=
+MIN_OTP_FAILED_ATTEMPT=
+OTP_FAILED_RESET_TIME=

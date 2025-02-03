@@ -1,0 +1,232 @@
+openapi: 3.0.0
+info:
+  title: Dripside API
+  version: 1.0.0
+  description: API documentation for Dripside.
+
+paths:
+  /api/v1/artist:
+    get:
+      summary: Retrieve a list of artists
+      tags:
+        - Artists
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: timestamp
+          in: query
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          schema:
+            type: integer
+        - name: code
+          in: query
+          schema:
+            type: string
+        - name: name
+          in: query
+          schema:
+            type: string
+        - name: deleted
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of artists retrieved successfully
+        "401":
+          description: Unauthorized
+    post:
+      summary: Add a new artist
+      tags:
+        - Artists
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: Artist object that needs to be added
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                name:
+                  type: string
+                status:
+                  type: string
+                  enum: [ACTIVE, INACTIVE]
+                verificationDocuments:
+                  type: object
+                  properties:
+                    adhaarCard:
+                      type: string
+                    socialMediaUrls:
+                      type: array
+                      items:
+                        type: string
+                    panCard:
+                      type: string
+                    bankDetails:
+                      type: string
+      responses:
+        "200":
+          description: Artist created successfully
+        "401":
+          description: Unauthorized
+
+  /api/v1/artist/{sid}:
+    get:
+      summary: Retrieve a specific artist by ID
+      tags:
+        - Artists
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: sid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Artist retrieved successfully
+        "401":
+          description: Unauthorized
+    patch:
+      summary: Edit an artist's details
+      tags:
+        - Artists
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: sid
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Artist object that needs to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                status:
+                  type: string
+                  enum: [ACTIVE, INACTIVE]
+                verificationDocuments:
+                  type: object
+                  properties:
+                    adhaarCard:
+                      type: string
+                    socialMediaUrls:
+                      type: array
+                      items:
+                        type: string
+                    panCard:
+                      type: string
+                    bankDetails:
+                      type: string
+      responses:
+        "200":
+          description: Artist updated successfully
+        "401":
+          description: Unauthorized
+    delete:
+      summary: Temporarily delete an artist
+      tags:
+        - Artists
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: sid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Artist deleted successfully
+        "401":
+          description: Unauthorized
+
+  /api/v1/artist/change-status/{sid}:
+    patch:
+      summary: Change an artist's status
+      tags:
+        - Artists
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: sid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Artist status updated successfully
+        "401":
+          description: Unauthorized
+
+  /api/v1/artist/restore/{sid}:
+    put:
+      summary: Restore a deleted artist
+      tags:
+        - Artists
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: sid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Artist restored successfully
+        "401":
+          description: Unauthorized
+
+  /api/v1/artist/delete/{sid}:
+    delete:
+      summary: Permanently delete an artist
+      tags:
+        - Artists
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: sid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Artist permanently deleted successfully
+        "401":
+          description: Unauthorized
+
+  /api/v1/artist/delete/all:
+    delete:
+      summary: Delete all artists (Development mode only)
+      tags:
+        - Artists
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: All artists deleted successfully
+        "401":
+          description: Unauthorized
